@@ -1,0 +1,38 @@
+{
+  "name": "multitenant",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "rnuc": "$(npm bin)/rnuc",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "config:drc": "node bin/env.js -t drc",
+    "config:cuidarme": "node bin/env.js -t cuidarme"
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.5",
+    "react-native-ultimate-config": "^6.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
+    "chalk": "^5.2.0",
+    "commander": "^10.0.1",
+    "eslint": "^6.5.1",
+    "fs": "^0.0.1-security",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "path": "^0.12.7",
+    "plist": "^3.0.6",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

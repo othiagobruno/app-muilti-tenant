@@ -2,8 +2,6 @@
   "name": "drconsulta",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "main": "index.js",
   "scripts": {
     "rnuc": "$(npm bin)/rnuc",
     "android": "react-native run-android",

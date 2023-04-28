@@ -1,14 +1,15 @@
 {
-  "name": "drconsulta",
+  "name": "cuidarme",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "rnuc": "$(npm bin)/rnuc",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "config:drc": "node bin/env.js -t drconsulta",
-    "config:drconsulta": "node bin/env.js -t drconsulta"
+    "config:drc": "node bin/env.js -t cuidarme",
+    "config:cuidarme": "node bin/env.js -t cuidarme"
   },
   "dependencies": {
     "react": "16.13.1",

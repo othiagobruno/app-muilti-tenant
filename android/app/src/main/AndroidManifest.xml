@@ -1,12 +1,12 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.drconsulta">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cuidarme">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
-      android:icon="@mipmap/ic_launcher_drconsulta"
-      android:roundIcon="@mipmap/ic_launcher_rounded_drconsulta"
+      android:icon="@mipmap/ic_launcher_cuidarme"
+      android:roundIcon="@mipmap/ic_launcher_rounded_cuidarme"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
       <activity
@@ -20,7 +20,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         <intent-filter>
-            <data android:pathPrefix="/android/callback" android:scheme="drconsulta" android:host="drconsulta" />
+            <data android:pathPrefix="/android/callback" android:scheme="cuidarme" android:host="cuidarme" />
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />

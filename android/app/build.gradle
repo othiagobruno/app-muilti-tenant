@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.cuidarme"
+        applicationId "com.drconsulta"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

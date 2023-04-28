@@ -18,13 +18,13 @@ if (!tenant) {
 
 const app = getConfig(tenant);
 
-// theme.setup(tenant);
-android.setup(tenant);
+
 // ios.setup(tenant);
 
 
 const command = `npx react-native-rename "${app.uri}" -b "${app.app_uri_android}"`
 
+console.log(chalk.yellow('[MultiTenant] => RENAME APP'));
 exec(command, (err, stdout, stderr) => {
   if (err) {
     console.error(err);
@@ -34,11 +34,14 @@ exec(command, (err, stdout, stderr) => {
     console.log(`stderr: ${stderr}`);
   }
 });
+console.log(chalk.green('[MultiTenant] => RENAME FINISHED'));
 
-console.log(chalk.green('[MultiTenant] => ' + chalk.blue.yellowBright(command)));
+//
+console.log(chalk.yellow('[MultiTenant] => ANDROID SETUP'));
+android.setup(tenant);
+console.log(chalk.green('[MultiTenant] => ANDROID FINISHED'));
 
 
-
-console.log(chalk.green('[MultiTenant] => ' + chalk.blue.yellowBright(tenant)));
+console.log(chalk.green('[MultiTenant] => App renamed to: ' + chalk.blue.yellowBright(tenant)));
 
 program.version('1.0.0');

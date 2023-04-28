@@ -1,4 +1,4 @@
-package com.drconsulta;
+package com.cuidarme;
 
 import com.facebook.react.ReactActivity;
 

@@ -3,12 +3,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'multitenant' do
+target 'Cuidarme' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'multitenantTests' do
+  target 'CuidarmeTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +23,10 @@ target 'multitenant' do
   end
 end
 
-target 'multitenant-tvOS' do
-  # Pods for multitenant-tvOS
+target 'Cuidarme-tvOS' do
+  # Pods for Cuidarme-tvOS
 
-  target 'multitenant-tvOSTests' do
+  target 'Cuidarme-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

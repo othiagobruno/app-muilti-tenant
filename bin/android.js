@@ -10,15 +10,12 @@ const __dirname = path.dirname(__filename);
 function setup(tenant) {
   tenant = tenant.toLowerCase();
 
-  // replaceMainApplication(tenant)
-  // replaceMainActivity(tenant)
-  // renamePackage(tenant)
-  // manifest(tenant);
-  // strings(tenant);
-  // firebase(tenant);
-  // icon(tenant);
-  // splash(tenant);
-  // clean();
+  manifest(tenant);
+  strings(tenant);
+  firebase(tenant);
+  icon(tenant);
+  splash(tenant);
+  clean();
 }
 
 function firebase(tenant) {
@@ -136,113 +133,6 @@ function strings(tenant) {
   });
 }
 
-
-function replaceMainApplication(tenant) {
-  const app = getConfig(tenant);
-  const javaConfigPath = path.join(
-    __dirname,
-    '..',
-    'android',
-    'app',
-    'src',
-    'main',
-    'java',
-    'com',
-    'multitenant',
-    'MainApplication.java',
-  );
-
-  let javaFileContent = fs.readFileSync(javaConfigPath, {
-    encoding: 'utf-8',
-  });
-
-  const packages = ['com.multitenant', tenants.cuidarme.app_uri_android, tenants.cuidarme.app_uri_android]
-
-
-  for (let i = 0; i < packages.length; i++) {
-    const package_name = packages[i];
-    if (javaFileContent.includes(package_name)) {
-      javaFileContent = javaFileContent.replace(
-        new RegExp(package_name, 'g'),
-        app.app_uri_android,
-      );
-    }
-  }
-  
-  fs.writeFileSync(javaConfigPath, javaFileContent, {
-    encoding: 'utf-8',
-  });
-}
-
-
-
-// function renamePackage(tenant) {
-//   const app = getConfig(tenant);
-//   const javaConfigPath = path.join(
-//     __dirname,
-//     '..',
-//     'android',
-//     'app',
-//     'src',
-//     'main',
-//     'java',
-//     'com',
-//     'multitenant',
-//   );
-
-//   const javaConfigPathDest = path.join(
-//     __dirname,
-//     '..',
-//     'android',
-//     'app',
-//     'src',
-//     'main',
-//     'java',
-//     'com',
-//     app.uri,
-//   );
-
-//   fs.renameSync(javaConfigPath, javaConfigPathDest);
-// }
-
-
-function replaceMainActivity(tenant) {
-  const app = getConfig(tenant);
-  const javaConfigPath = path.join(
-    __dirname,
-    '..',
-    'android',
-    'app',
-    'src',
-    'main',
-    'java',
-    'com',
-    'multitenant',
-    'MainActivity.java',
-  );
-
-  let javaFileContent = fs.readFileSync(javaConfigPath, {
-    encoding: 'utf-8',
-  });
-
-  const packages = ['com.multitenant', tenants.cuidarme.app_uri_android, tenants.cuidarme.app_uri_android]
-
-
-  for (let i = 0; i < packages.length; i++) {
-    const package_name = packages[i];
-    if (javaFileContent.includes(package_name)) {
-      javaFileContent = javaFileContent.replace(
-        new RegExp(package_name, 'g'),
-        app.app_uri_android,
-      );
-    }
-  }
-  
-  fs.writeFileSync(javaConfigPath, javaFileContent, {
-    encoding: 'utf-8',
-  });
-}
-
 function manifest(tenant) {
   const app = getConfig(tenant);
 
@@ -258,10 +148,6 @@ function manifest(tenant) {
   let manifestFileContent = fs.readFileSync(stringsConfigPath, {
     encoding: 'utf-8',
   });
-  manifestFileContent = manifestFileContent.replace(
-    /<manifest xmlns:android.*/,
-    `<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="${app.app_uri_android}">`,
-  );
 
   manifestFileContent = manifestFileContent.replace(
     /<data android:pathPrefix.*/,

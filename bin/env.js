@@ -20,14 +20,13 @@ const app = getConfig(tenant);
 
 // theme.setup(tenant);
 android.setup(tenant);
-ios.setup(tenant);
+// ios.setup(tenant);
 
 
-const command = `npx react-native-rename "${app.title}" -b "${app.app_uri_android}"`
+const command = `npx react-native-rename "${app.uri}" -b "${app.app_uri_android}"`
 
 exec(command, (err, stdout, stderr) => {
   if (err) {
-    //some err occurred
     console.error(err);
   } else {
     // the *entire* stdout and stderr (buffered)

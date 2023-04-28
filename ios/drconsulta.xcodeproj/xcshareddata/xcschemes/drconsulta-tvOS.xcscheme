@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "cuidarme-tvOS.app"
-               BlueprintName = "cuidarme-tvOS"
-               ReferencedContainer = "container:cuidarme.xcodeproj">
+               BuildableName = "drconsulta-tvOS.app"
+               BlueprintName = "drconsulta-tvOS"
+               ReferencedContainer = "container:drconsulta.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "cuidarme-tvOSTests.xctest"
-               BlueprintName = "cuidarme-tvOSTests"
-               ReferencedContainer = "container:cuidarme.xcodeproj">
+               BuildableName = "drconsulta-tvOSTests.xctest"
+               BlueprintName = "drconsulta-tvOSTests"
+               ReferencedContainer = "container:drconsulta.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "cuidarme-tvOS.app"
-            BlueprintName = "cuidarme-tvOS"
-            ReferencedContainer = "container:cuidarme.xcodeproj">
+            BuildableName = "drconsulta-tvOS.app"
+            BlueprintName = "drconsulta-tvOS"
+            ReferencedContainer = "container:drconsulta.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "cuidarme-tvOS.app"
-            BlueprintName = "cuidarme-tvOS"
-            ReferencedContainer = "container:cuidarme.xcodeproj">
+            BuildableName = "drconsulta-tvOS.app"
+            BlueprintName = "drconsulta-tvOS"
+            ReferencedContainer = "container:drconsulta.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

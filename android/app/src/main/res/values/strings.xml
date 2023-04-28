@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">DrConsulta</string>
+    <string name="app_name">drconsulta</string>
+     <string moduleConfig="true" name="CodePushDeploymentKey">5AjEih90U4tgMG9TEq0XdskZtonuEaMqkFpL-Hz</string>
 </resources>

@@ -5,8 +5,8 @@
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
-      android:icon="@mipmap/ic_launcher_drc"
-      android:roundIcon="@mipmap/ic_launcher_rounded_drc"
+      android:icon="@mipmap/ic_launcher_drconsulta"
+      android:roundIcon="@mipmap/ic_launcher_rounded_drconsulta"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
       <activity

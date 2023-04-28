@@ -1,5 +1,5 @@
 export const tenants = {
-  drc: {
+  drconsulta: {
     name: 'DrConsulta',
     title: 'Dr. Consulta ',
     uri: 'drconsulta',

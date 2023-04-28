@@ -24,7 +24,7 @@ function appname(tenant) {
     __dirname,
     '..',
     'ios',
-    'multitenant',
+    tenant,
     'Info.plist',
   );
 
@@ -70,7 +70,7 @@ function codepush(tenant = 'drc') {
     __dirname,
     '..',
     'ios',
-    'multitenant',
+    tenant,
     'Info.plist',
   );
 
@@ -103,7 +103,7 @@ function icons(tenant) {
     __dirname,
     '..',
     'ios',
-    'multitenant',
+    tenant,
     'Images.xcassets',
     'AppIcon.appiconset',
   );

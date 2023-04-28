@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "cuidarme.app"
-               BlueprintName = "cuidarme"
-               ReferencedContainer = "container:cuidarme.xcodeproj">
+               BuildableName = "drconsulta.app"
+               BlueprintName = "drconsulta"
+               ReferencedContainer = "container:drconsulta.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "cuidarmeTests.xctest"
-               BlueprintName = "cuidarmeTests"
-               ReferencedContainer = "container:cuidarme.xcodeproj">
+               BuildableName = "drconsultaTests.xctest"
+               BlueprintName = "drconsultaTests"
+               ReferencedContainer = "container:drconsulta.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "cuidarme.app"
-            BlueprintName = "cuidarme"
-            ReferencedContainer = "container:cuidarme.xcodeproj">
+            BuildableName = "drconsulta.app"
+            BlueprintName = "drconsulta"
+            ReferencedContainer = "container:drconsulta.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "cuidarme.app"
-            BlueprintName = "cuidarme"
-            ReferencedContainer = "container:cuidarme.xcodeproj">
+            BuildableName = "drconsulta.app"
+            BlueprintName = "drconsulta"
+            ReferencedContainer = "container:drconsulta.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

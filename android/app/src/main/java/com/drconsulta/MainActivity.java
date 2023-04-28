@@ -1,4 +1,4 @@
-package com.multitenant;
+package com.drconsulta;
 
 import com.facebook.react.ReactActivity;
 

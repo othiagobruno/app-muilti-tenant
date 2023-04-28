@@ -15,7 +15,7 @@
   "dependencies": {
     "react": "16.13.1",
     "react-native": "0.63.5",
-    "react-native-ultimate-config": "^6.0.0"
+    "react-native-rename": "^3.2.12"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

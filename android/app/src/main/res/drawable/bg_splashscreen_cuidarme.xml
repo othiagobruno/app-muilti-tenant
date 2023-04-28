@@ -9,7 +9,7 @@
   <item
     android:width="320dp"
     android:height="120dp"
-    android:drawable="@drawable/cuidarme-logo"
+    android:drawable="@drawable/cuidarme_logo"
     android:gravity="center"
   />
 </layer-list>

@@ -2,6 +2,8 @@ import chalk from 'chalk';
 import {program} from 'commander';
 import * as android from './android.js';
 import * as ios from './ios.js';
+import { getConfig } from './config.js';
+import {exec} from 'child_process';
 
 program.option('-t, --tenant <name>', 'Tenant name');
 
@@ -14,11 +16,29 @@ if (!tenant) {
   process.exit(1);
 }
 
-console.log({tenant});
+const app = getConfig(tenant);
 
 // theme.setup(tenant);
 android.setup(tenant);
 ios.setup(tenant);
+
+
+const command = `npx react-native-rename "${app.title}" -b "${app.app_uri_android}"`
+
+exec(command, (err, stdout, stderr) => {
+  if (err) {
+    //some err occurred
+    console.error(err);
+  } else {
+    // the *entire* stdout and stderr (buffered)
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+  }
+});
+
+console.log(chalk.green('[MultiTenant] => ' + chalk.blue.yellowBright(command)));
+
+
 
 console.log(chalk.green('[MultiTenant] => ' + chalk.blue.yellowBright(tenant)));
 

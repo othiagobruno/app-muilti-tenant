@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import {getConfig} from './config.js';
 import {fileURLToPath} from 'url';
+import { tenants } from '../configs/tenants.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,12 +10,15 @@ const __dirname = path.dirname(__filename);
 function setup(tenant) {
   tenant = tenant.toLowerCase();
 
-  manifest(tenant);
-  strings(tenant);
-  firebase(tenant);
-  icon(tenant);
-  splash(tenant);
-  clean();
+  // replaceMainApplication(tenant)
+  // replaceMainActivity(tenant)
+  // renamePackage(tenant)
+  // manifest(tenant);
+  // strings(tenant);
+  // firebase(tenant);
+  // icon(tenant);
+  // splash(tenant);
+  // clean();
 }
 
 function firebase(tenant) {
@@ -82,10 +86,17 @@ function splash(tenant) {
   let splashConfigFileContent = fs.readFileSync(splashConfigPath, {
     encoding: 'utf-8',
   });
+  
   splashConfigFileContent = splashConfigFileContent.replace(
     /@drawable.*/,
     `@drawable/bg_splashscreen_${tenant}`,
   );
+
+  splashConfigFileContent = splashConfigFileContent.replace(
+    /@drawable.*/,
+    `@drawable/bg_splashscreen_${tenant}`,
+  );
+
   fs.writeFileSync(splashConfigPath, splashConfigFileContent, {
     encoding: 'utf-8',
   });
@@ -103,20 +114,131 @@ function strings(tenant) {
     'values',
     'strings.xml',
   );
+  
   let stringFileContent = fs.readFileSync(stringsConfigPath, {
     encoding: 'utf-8',
   });
+
   stringFileContent = stringFileContent.replace(
     /<string name="app_name">.*/,
     `<string name="app_name">${getConfig(tenant).name}</string>`,
   );
+  
   stringFileContent = stringFileContent.replace(
     /<string moduleConfig="true" name="CodePushDeploymentKey">.*/,
     `<string moduleConfig="true" name="CodePushDeploymentKey">${
       getConfig(tenant).codepush_android_production_key
     }</string>`,
   );
+  
   fs.writeFileSync(stringsConfigPath, stringFileContent, {
+    encoding: 'utf-8',
+  });
+}
+
+
+function replaceMainApplication(tenant) {
+  const app = getConfig(tenant);
+  const javaConfigPath = path.join(
+    __dirname,
+    '..',
+    'android',
+    'app',
+    'src',
+    'main',
+    'java',
+    'com',
+    'multitenant',
+    'MainApplication.java',
+  );
+
+  let javaFileContent = fs.readFileSync(javaConfigPath, {
+    encoding: 'utf-8',
+  });
+
+  const packages = ['com.multitenant', tenants.cuidarme.app_uri_android, tenants.cuidarme.app_uri_android]
+
+
+  for (let i = 0; i < packages.length; i++) {
+    const package_name = packages[i];
+    if (javaFileContent.includes(package_name)) {
+      javaFileContent = javaFileContent.replace(
+        new RegExp(package_name, 'g'),
+        app.app_uri_android,
+      );
+    }
+  }
+  
+  fs.writeFileSync(javaConfigPath, javaFileContent, {
+    encoding: 'utf-8',
+  });
+}
+
+
+
+// function renamePackage(tenant) {
+//   const app = getConfig(tenant);
+//   const javaConfigPath = path.join(
+//     __dirname,
+//     '..',
+//     'android',
+//     'app',
+//     'src',
+//     'main',
+//     'java',
+//     'com',
+//     'multitenant',
+//   );
+
+//   const javaConfigPathDest = path.join(
+//     __dirname,
+//     '..',
+//     'android',
+//     'app',
+//     'src',
+//     'main',
+//     'java',
+//     'com',
+//     app.uri,
+//   );
+
+//   fs.renameSync(javaConfigPath, javaConfigPathDest);
+// }
+
+
+function replaceMainActivity(tenant) {
+  const app = getConfig(tenant);
+  const javaConfigPath = path.join(
+    __dirname,
+    '..',
+    'android',
+    'app',
+    'src',
+    'main',
+    'java',
+    'com',
+    'multitenant',
+    'MainActivity.java',
+  );
+
+  let javaFileContent = fs.readFileSync(javaConfigPath, {
+    encoding: 'utf-8',
+  });
+
+  const packages = ['com.multitenant', tenants.cuidarme.app_uri_android, tenants.cuidarme.app_uri_android]
+
+
+  for (let i = 0; i < packages.length; i++) {
+    const package_name = packages[i];
+    if (javaFileContent.includes(package_name)) {
+      javaFileContent = javaFileContent.replace(
+        new RegExp(package_name, 'g'),
+        app.app_uri_android,
+      );
+    }
+  }
+  
+  fs.writeFileSync(javaConfigPath, javaFileContent, {
     encoding: 'utf-8',
   });
 }

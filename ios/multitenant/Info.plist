@@ -5,11 +5,11 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleDisplayName</key>
-    <string>Dr. Consulta </string>
+    <string>Cuidar.me</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
-    <string>drconsulta</string>
+    <string>com.cuidarme</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
@@ -54,6 +54,6 @@
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
     <key>CodePushDeploymentKey</key>
-    <string>pQ3iko_mK94WFG8lsdcUnJxL-30KEsE9yd4lROg</string>
+    <string>dKHlzsSJ3Grzm-Pb8pasdKFWmq17NLMYIveKwkx</string>
   </dict>
 </plist>

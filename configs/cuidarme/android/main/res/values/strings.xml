@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">cuidarme</string>
+     <string moduleConfig="true" name="CodePushDeploymentKey">0qZutMStbrpsdIKAiEXGa59SwQSSZcC7yEg80K8</string>
+</resources>

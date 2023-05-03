@@ -1,9 +1,8 @@
 import chalk from 'chalk';
 import {program} from 'commander';
-import * as android from './android.js';
-import * as ios from './ios.js';
-import { getConfig } from './config.js';
-import {exec} from 'child_process';
+
+import fs from 'fs';
+import path from 'path';
 
 program.option('-t, --tenant <name>', 'Tenant name');
 
@@ -16,34 +15,53 @@ if (!tenant) {
   process.exit(1);
 }
 
-const app = getConfig(tenant);
+(async () => {
+  await android();
+  await ios();
+})();
 
-const command = `npx react-native-rename "${app.uri}" -b "${app.app_uri_android}" --iosBundleID="${
-  app.app_uri_android
-}" --skipGitStatusCheck`
-
-console.log(chalk.yellow('[MultiTenant] => RENAME APP'));
-exec(command, (err, stdout, stderr) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(`stdout: ${stdout}`);
-    console.log(`stderr: ${stderr}`);
-  }
-});
-console.log(chalk.green('[MultiTenant] => RENAME FINISHED'));
-
-//
-console.log(chalk.yellow('[MultiTenant] => ANDROID SETUP'));
-android.setup(tenant);
-console.log(chalk.green('[MultiTenant] => ANDROID FINISHED'));
-
-//
-console.log(chalk.yellow('[MultiTenant] => IOS SETUP'));
-ios.setup(tenant);
-console.log(chalk.green('[MultiTenant] => IOS FINISHED'));
-
-
-console.log(chalk.green('[MultiTenant] => App renamed to: ' + chalk.blue.yellowBright(tenant)));
+console.log(
+  chalk.green(
+    '[MultiTenant] => App renamed to: ' + chalk.blue.yellowBright(tenant),
+  ),
+);
 
 program.version('1.0.0');
+
+async function android() {
+  console.log(
+    chalk.green(
+      '[MultiTenant] => Iniciando Android: ' + chalk.blue.yellowBright(tenant),
+    ),
+  );
+  const sourceAssetsDir = path.join(
+    __dirname,
+    '..',
+    'configs',
+    tenant,
+    'android',
+  );
+  const targetAssetsDir = path.join(__dirname, '..', 'android');
+  fs.copySync(sourceAssetsDir, targetAssetsDir);
+  console.log(
+    chalk.green(
+      '[MultiTenant] => Android Moved: ' + chalk.blue.yellowBright(tenant),
+    ),
+  );
+}
+
+async function ios() {
+  console.log(
+    chalk.green(
+      '[MultiTenant] => Iniciando IOS: ' + chalk.blue.yellowBright(tenant),
+    ),
+  );
+  const sourceAssetsDir = path.join(__dirname, '..', 'configs', tenant, 'ios');
+  const targetAssetsDir = path.join(__dirname, '..', 'ios');
+  fs.copySync(sourceAssetsDir, targetAssetsDir);
+  console.log(
+    chalk.green(
+      '[MultiTenant] => IOS Moved: ' + chalk.blue.yellowBright(tenant),
+    ),
+  );
+}
